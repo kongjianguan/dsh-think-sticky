@@ -9,7 +9,7 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
 1. Symlink this directory into the dsh web profile's module directory (so the loader can resolve it):
 
    ```bash
-   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@local/dsh-think-sticky
+   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
    ```
 
 2. Append to `~/.dsh/profiles/web/cordis.patch.yml`:
@@ -17,7 +17,7 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
    ```yaml
    - insert:
        - id: dsh-think-sticky
-         name: '@local/dsh-think-sticky'
+         name: '@kongjianguan/dsh-think-sticky'
    ```
 
    (The `cordis.patch.yml` at this repo's root is exactly the step-2 snippet.)

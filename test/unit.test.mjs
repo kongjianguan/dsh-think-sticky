@@ -29,7 +29,7 @@ const plugin = descriptor.factory();
 const I = plugin.__internals;
 
 test("loader contract: descriptor id, plugin shape, internals seam", () => {
-	assert.equal(descriptor.id, "@local/dsh-think-sticky");
+	assert.equal(descriptor.id, "@kongjianguan/dsh-think-sticky");
 	assert.equal(typeof descriptor.factory, "function");
 	assert.equal(plugin.name, "dsh-think-sticky");
 	assert.equal(typeof plugin.apply, "function");

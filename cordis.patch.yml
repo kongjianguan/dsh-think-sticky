@@ -1,4 +1,4 @@
 # dsh bundle patch: mounts the Think-row sticky CSS plugin.
 - insert:
   - id: dsh-think-sticky
-    name: '@local/dsh-think-sticky'
+    name: '@kongjianguan/dsh-think-sticky'

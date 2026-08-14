@@ -1,7 +1,6 @@
 {
-  "name": "@local/dsh-think-sticky",
+  "name": "@kongjianguan/dsh-think-sticky",
   "version": "0.1.0",
-  "private": true,
   "description": "Pin the Think disclosure row (expand/collapse control) to the viewport top when long reasoning text scrolls past.",
   "main": "lib/index.js",
   "exports": {
@@ -9,8 +8,14 @@
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "node test/unit.test.mjs && node test/smoke.test.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dsh": {
     "client": {

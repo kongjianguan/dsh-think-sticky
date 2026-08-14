@@ -13,5 +13,13 @@
     "client": {
       "platform": "web"
     }
-  }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "sticky",
+    "think"
+  ],
+  "license": "MIT"
 }

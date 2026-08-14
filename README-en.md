@@ -2,7 +2,7 @@
 
 A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure row (the expand/collapse control) to the top of the viewport** while long reasoning text scrolls past — the interaction and look are faithful to the official chat.deepseek.com collapsible header.
 
-中文版：[README.md](./README.md)
+中文版：[README.md](https://github.com/kongjianguan/dsh-think-sticky/blob/main/README.md)
 
 ## Install
 

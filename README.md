@@ -2,7 +2,7 @@
 
 DeepSeek Harness（`dsh web`）客户端插件：思考块（Think）的展开/收起标题行 **sticky 贴住视口顶部**——长思考内容滚动时，按钮始终可见，交互与视觉对齐官方 chat.deepseek.com。
 
-English version: [README-en.md](./README-en.md)
+English version: [README-en.md](https://github.com/kongjianguan/dsh-think-sticky/blob/main/README-en.md)
 
 ## 安装
 

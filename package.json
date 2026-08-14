@@ -9,8 +9,10 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "lib"
+    "lib",
+    "README-en.md"
   ],
+  "author": "kongjianguan",
   "scripts": {
     "test": "node test/unit.test.mjs && node test/smoke.test.mjs"
   },

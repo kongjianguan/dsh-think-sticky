@@ -6,10 +6,13 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
 
 ## Install
 
-1. Symlink this directory into the dsh web profile's module directory (so the loader can resolve it):
+**Method 1: from npm (recommended, published versions)**
+
+1. Install the dependency inside the dsh web profile:
 
    ```bash
-   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
+   cd ~/.dsh/profiles/web
+   pnpm add @kongjianguan/dsh-think-sticky
    ```
 
 2. Append to `~/.dsh/profiles/web/cordis.patch.yml`:
@@ -23,6 +26,16 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
    (The `cordis.patch.yml` at this repo's root is exactly the step-2 snippet.)
 
 3. **Restart `dsh web`** (client modules are scanned at startup; hot reload works afterwards).
+
+**Method 2: local development (unpublished / hacking on the source)**
+
+Symlink this directory into the profile's module directory, then follow steps 2–3 of Method 1:
+
+```bash
+ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
+```
+
+> Note: don't use both methods at once — the Method-2 symlink and the pnpm-installed copy live at the same path and will conflict.
 
 ## Features
 

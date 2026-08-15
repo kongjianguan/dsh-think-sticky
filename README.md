@@ -6,10 +6,13 @@ English version: [README-en.md](https://github.com/kongjianguan/dsh-think-sticky
 
 ## 安装
 
-1. 把本目录链接进 dsh web profile 的模块目录（让 loader 能解析）：
+**方式一：npm 安装（推荐，已发布版本）**
+
+1. 在 dsh web profile 目录安装依赖：
 
    ```bash
-   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
+   cd ~/.dsh/profiles/web
+   pnpm add @kongjianguan/dsh-think-sticky
    ```
 
 2. 在 `~/.dsh/profiles/web/cordis.patch.yml` 追加：
@@ -23,6 +26,16 @@ English version: [README-en.md](https://github.com/kongjianguan/dsh-think-sticky
    （本仓库根目录的 `cordis.patch.yml` 即步骤 2 的补丁片段。）
 
 3. **重启 `dsh web`**（客户端模块扫描需重启生效；之后插件支持热重载）。
+
+**方式二：本地开发（未发布 / 改源码时）**
+
+把本目录链接进 profile 的模块目录，再按方式一第 2、3 步追加补丁条目并重启：
+
+```bash
+ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
+```
+
+> 注意：两种方式不要同时使用——方式二的符号链接与 pnpm 安装的文件在同一路径，会互相冲突。
 
 ## 功能
 

@@ -8,11 +8,10 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
 
 **Method 1: from npm (recommended, published versions)**
 
-1. Install the dependency inside the dsh web profile:
+1. Install into the web profile with dsh's plugin command (equivalent to `pnpm add` in `~/.dsh/profiles/web`):
 
    ```bash
-   cd ~/.dsh/profiles/web
-   pnpm add @kongjianguan/dsh-think-sticky
+   dsh plugin --profile web add @kongjianguan/dsh-think-sticky
    ```
 
 2. Append to `~/.dsh/profiles/web/cordis.patch.yml`:

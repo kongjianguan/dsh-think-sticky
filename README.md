@@ -8,11 +8,10 @@ English version: [README-en.md](https://github.com/kongjianguan/dsh-think-sticky
 
 **方式一：npm 安装（推荐，已发布版本）**
 
-1. 在 dsh web profile 目录安装依赖：
+1. 用 dsh 的插件命令安装到 web profile（等价于在 `~/.dsh/profiles/web` 下执行 `pnpm add`）：
 
    ```bash
-   cd ~/.dsh/profiles/web
-   pnpm add @kongjianguan/dsh-think-sticky
+   dsh plugin --profile web add @kongjianguan/dsh-think-sticky
    ```
 
 2. 在 `~/.dsh/profiles/web/cordis.patch.yml` 追加：

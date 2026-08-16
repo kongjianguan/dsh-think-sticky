@@ -147,13 +147,13 @@ test("scrollerOf: falls back to the document root", () => {
 	assert.equal(I.scrollerOf(leaf), globalThis.document.scrollingElement);
 });
 
-test("scrollerOf: caches lookups per element", () => {
+test("scrollerOf: re-walks the ancestor chain on every call (no stale cache)", () => {
 	globalThis.document = { scrollingElement: { id: "root" }, documentElement: { id: "html" } };
 	const scroller = makeEl({ overflowY: "scroll", scrollHeight: 1000, clientHeight: 200 });
 	const leaf = makeEl({ parent: scroller });
 	assert.equal(I.scrollerOf(leaf), scroller);
-	leaf.parentElement = null; // a fresh walk would now find the root
-	assert.equal(I.scrollerOf(leaf), scroller, "cached result must win over a re-walk");
+	leaf.parentElement = null; // layout change: the scroller is no longer an ancestor
+	assert.equal(I.scrollerOf(leaf), globalThis.document.scrollingElement, "re-walk must reflect the current tree");
 });
 
 console.log(`\n${passed} unit tests passed`);

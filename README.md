@@ -14,15 +14,7 @@ English version: [README-en.md](https://github.com/kongjianguan/dsh-think-sticky
    dsh plugin --profile web add @kongjianguan/dsh-think-sticky
    ```
 
-2. 在 `~/.dsh/profiles/web/cordis.patch.yml` 追加：
-
-   ```yaml
-   - insert:
-       - id: dsh-think-sticky
-         name: '@kongjianguan/dsh-think-sticky'
-   ```
-
-   （本仓库根目录的 `cordis.patch.yml` 即步骤 2 的补丁片段。）
+2. 在 `~/.dsh/profiles/web/cordis.patch.yml` 追加插件挂载条目——内容即本仓库根目录的 [cordis.patch.yml](https://github.com/kongjianguan/dsh-think-sticky/blob/main/cordis.patch.yml)。
 
 3. **重启 `dsh web`**（客户端模块扫描需重启生效；之后插件支持热重载）。
 
@@ -49,7 +41,7 @@ ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
 
 - **纯客户端**：`lib/index.js` 仅为满足 Cordis 加载契约的空 Host 插件；全部行为在 `lib/client.js`（浏览器 bundle，`window.__ModuleLoader__.load(...)`，由 `package.json` 的 `dsh.client` 声明发现）
 - **注入样式**：启动时注入带 `data-plugin="dsh-think-sticky"` 的 `<style>`，幂等（HMR 重载不重复注入），卸载时移除
-- **钉住检测**：`scrollerOf()` 沿祖先链找第一个可滚动容器（WeakMap 缓存）；行矩形同时"压住"容器顶边判定为 pinned
+- **钉住检测**：`scrollerOf()` 沿祖先链找第一个可滚动容器；行矩形同时"压住"容器顶边判定为 pinned
 - **遮罩层级**：行内 `::after`（页面背景色，z-index -1）保证钉住时文字不透视滚动内容；`::before`（渐变淡化带）位于行下方 24px
 
 ## 许可证

@@ -14,15 +14,7 @@ A DeepSeek Harness (`dsh web`) client plugin that **pins the Think disclosure ro
    dsh plugin --profile web add @kongjianguan/dsh-think-sticky
    ```
 
-2. Append to `~/.dsh/profiles/web/cordis.patch.yml`:
-
-   ```yaml
-   - insert:
-       - id: dsh-think-sticky
-         name: '@kongjianguan/dsh-think-sticky'
-   ```
-
-   (The `cordis.patch.yml` at this repo's root is exactly the step-2 snippet.)
+2. Append the plugin mount entry to `~/.dsh/profiles/web/cordis.patch.yml` — it's exactly the [cordis.patch.yml](https://github.com/kongjianguan/dsh-think-sticky/blob/main/cordis.patch.yml) at this repo's root.
 
 3. **Restart `dsh web`** (client modules are scanned at startup; hot reload works afterwards).
 
@@ -49,7 +41,7 @@ ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@kongjianguan/dsh-think-sticky
 
 - **Client-only**: `lib/index.js` is an empty Host plugin that exists only to satisfy the Cordis loader contract; all behavior lives in `lib/client.js` (browser bundle via `window.__ModuleLoader__.load(...)`, discovered through the `dsh.client` declaration in `package.json`).
 - **Injected styles**: on startup a `<style data-plugin="dsh-think-sticky">` tag is injected — idempotent (no duplicates on HMR reloads) and removed on teardown.
-- **Pin detection**: `scrollerOf()` walks the ancestor chain to find the first scrollable container (cached in a WeakMap); a row is pinned when its box straddles the container's top edge.
+- **Pin detection**: `scrollerOf()` walks the ancestor chain to find the first scrollable container; a row is pinned when its box straddles the container's top edge.
 - **Mask layers**: the row's `::after` (page background color, z-index -1) keeps scrolled content from showing through the text while pinned; `::before` (the gradient fade band) extends 24px below the row.
 
 ## License

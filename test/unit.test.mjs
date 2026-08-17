@@ -90,6 +90,24 @@ test("css: fade rule has exactly one background declaration (dedupe regression)"
 	assert.match(fade.body, /opacity:\s*0/);
 });
 
+test("css: bg layer wins the official running-sweep ::after rule (transparent-bg regression)", () => {
+	// The official UI paints a 300px sweep glow on the SAME ::after while the
+	// block streams: `.QWLzlG_root[data-state=running] .QWLzlG_row:after`
+	// (specificity (0,3,1), higher than our (0,2,1)). Its `background`
+	// shorthand resets background-color to transparent and clamps width to
+	// 300px, so a pinned row under that rule went see-through with only the
+	// glow visible. The bg layer must hold opaque + full-width with
+	// !important regardless.
+	const bg = parseRules(I.buildCss()).find((r) => r.selector === I.BG);
+	assert.ok(bg, "BG rule must exist");
+	assert.match(bg.body, /background-color:\s*var\(--dsw-alias-bg-base\)\s*!important/);
+	assert.match(bg.body, /width:\s*calc\(100% \+ 10px\)\s*!important/);
+	assert.match(bg.body, /height:\s*calc\(100% \+ 1px\)\s*!important/);
+	assert.match(bg.body, /top:\s*-1px\s*!important/);
+	assert.match(bg.body, /right:\s*0\s*!important/);
+	assert.match(bg.body, /left:\s*auto\s*!important/);
+});
+
 test("css: pinned fade rule and overflow override", () => {
 	const rules = parseRules(I.buildCss());
 	const pinned = rules.find((r) => r.selector === I.FADE_PINNED);
